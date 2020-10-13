@@ -1,0 +1,30 @@
+<iframe
+    id="reactAppIframe"
+    style="border:0"
+    height="500px"
+    width="100%"
+>
+</iframe>
+
+<script>
+    const hiddenFieldValue = document.getElementById("$field.getVelocityVarName()");
+    const iframe = document.getElementById("reactAppIframe");
+    const hostname = "$request.getRequestURL()".substr(0, "$request.getRequestURL()".indexOf('/', 8));
+
+    // Set data to the iframe to be loaded in the React App
+    iframe.dataset.value = document.getElementById("$field.getVelocityVarName()").value;
+    iframe.src = hostname + '/react-app/index.html';
+
+    iframe.onload = () => {
+        iframe.contentWindow.document.addEventListener("custom-field-react-app",
+            (event) => {
+                
+                // Prevent default and stop propagation to avoid conflict issues
+                event.preventDefault();
+                event.stopPropagation();
+                
+                // Updates value of hidden field related to the custom field
+                hiddenFieldValue.value = event.detail;
+            });
+    };
+</script>
