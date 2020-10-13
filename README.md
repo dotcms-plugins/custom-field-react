@@ -2,6 +2,8 @@
 
 The following are instructions to create a custom field in DotCMS using a VTL file that can import a ReactJS App (any JS framework app could be imported using the same principle) into an Iframe.
 
+Source code files (ReactJS app & VTL file) [here](#sourcelinks).
+
 ## Steps:
 
 1. Create the `Custom Field`
@@ -13,12 +15,12 @@ The following are instructions to create a custom field in DotCMS using a VTL fi
 ### 1. Create the Custom Field
 - A) Go to `Content Model` --> `Content Types` and add a new `Content`
 - <a id="step1b"></a> B) Add a `Custom Field` and set a `Name` (the Name must be unique). E.g. **customReactApp**
-- <a id="step1c"></a>C) In the `Value` field you need to set the path of the VTL file. E.g. 
+- <a id="step1c"></a> C) In the `Value` field you need to set the path of the VTL file. E.g. 
 `#dotParse("/application/vtl/custom-fields/customFieldReactApp.vtl")`
 
 ### 2. Create the VTL file
 - A) Go to `Site` --> `Browser` and create the `VTL` file based on the name and path set on step [1. C](#step1c)
-- <a id="step2b"></a>B) Open the `VTL` and add the following code:
+- <a id="step2b"></a>B) Open the `VTL` file and add the following code:
 ```
 1   <iframe
 2       id="reactAppIframe"
@@ -52,7 +54,7 @@ The following are instructions to create a custom field in DotCMS using a VTL fi
 29      };
 30  </script>
 ```
-***Notes:** on `line 18` the `Custom Event` name must match with the name declared later on step [3. B](#step3b)
+***Notes:** on `line 19` the `Custom Event` name must match with the name declared later on step [3. C](#step3c)
 
 ### 3. Create and build the [ReactJS app](https://reactjs.org/)
 
@@ -60,13 +62,13 @@ The following are instructions to create a custom field in DotCMS using a VTL fi
 ```
 npx create-react-app custom-field-react;
 cd custom-field-react;
-npm install --save react-simplemde-editor;
+npm install --save-dev react-simplemde-editor;
 ```
 - <a id="step3b"></a>B) Set homepage path as relative in your App configuration. To do it, open `package.json` file and add the following:
 ```
 "homepage": "./"
 ```
-- C) Edit `App.js` to add the MarkdownEditor:
+- <a id="step3c"></a>C) Edit `App.js` to add the MarkdownEditor:
 ```
 1   import React, { useState, useEffect } from 'react';
 2   import SimpleMDE from 'react-simplemde-editor';
@@ -99,7 +101,7 @@ npm install --save react-simplemde-editor;
 29  export default App;
 
 ```
-***Notes:** on `line 12` the `Custom Event` name must match with the name declared on step [2. B](#step2b)
+***Notes:** on `line 13` the `Custom Event` name must match with the name declared on step [2. B](#step2b)
 
 - D) In your terminal build your ReactJS App:
 ```
@@ -108,7 +110,13 @@ npm install --save react-simplemde-editor;
 
 ### 4. Upload the ReactJS app
 - Grab all files and folders from the folder `build` and upload them into the DotCMS server.
-***Notes:** The location must match the one defined on the VTL file on `line 16` on step step [2. B](#step2b)
+
+***Notes:** The location must match the one defined on the VTL file on `line 16` on step [2. B](#step2b)
 
 ### 5. Create a content based on the new `Custom Field`
-- A) Go to `Content` --> `Search` and add a new Custom Content created on step step [1. B](#step1b)
+- A) Go to `Content` --> `Search` and add a new Custom Content created on step [1. B](#step1b)
+
+## <a id="sourcelinks"></a>Source code files (ReactJS app & VTL file)
+- In this repository you will find the source code used to build:
+   - <a href="https://github.com/dotcms-plugins/custom-field-react/tree/main/custom-field-react" target="_blank">ReactJS app</a>   
+   - <a href="https://github.com/dotcms-plugins/custom-field-react/tree/main/vtl" target="_blank">VTL file</a>

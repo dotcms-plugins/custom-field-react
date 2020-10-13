@@ -1,3 +1,5 @@
+# ReactJS app that contains <a href="https://github.com/sparksuite/simplemde-markdown-editor" target="_blank">SimpleMDE - Markdown Editor</a>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
