@@ -1,4 +1,6 @@
-# DotCMS Custom Field with a ReactJS app <a href="https://github.com/sparksuite/simplemde-markdown-editor" target="_blank">SimpleMDE - Markdown Editor</a>
+# dotCMS Custom Field / React Based Markdown Editor   
+
+<a href="https://github.com/sparksuite/simplemde-markdown-editor" target="_blank">SimpleMDE - Markdown Editor</a>
 
 The following are instructions to create a custom field in DotCMS using a VTL file that can import a ReactJS App (any JS framework app could be imported using the same principle) into an Iframe.
 
