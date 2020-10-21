@@ -1,23 +1,22 @@
-# dotCMS Custom Field / React Based Markdown Editor   
+# dotCMS Custom Field - React Markdown Editor   
 
-<a href="https://github.com/sparksuite/simplemde-markdown-editor" target="_blank">SimpleMDE - Markdown Editor</a>
+This example shows to create a custom field that levergages prebuilt react components - in this case, the 
+[SimpleMDE - Markdown Editor](https://github.com/sparksuite/simplemde-markdown-editor)
 
-The following are instructions to create a custom field in DotCMS using a VTL file that can import a ReactJS App (any JS framework app could be imported using the same principle) into an Iframe.
-
-Source code files (ReactJS app & VTL file) [here](#sourcelinks).
+The patterns that this plugin uses to enable this react component can be used to incorporate any 3rd party javascript component (NG/Vue/React based) as a content control.  It uses a .vtl file to render the custom control in an iframe on the content editing screen and writes any changes made in the editor to the content's custom field value. 
 
 ## Steps:
 
 1. Create the `Custom Field`
-2. Create the `VTL file`
+2. Create the `vtl file`
 3. Create and build the `ReactJS app`
-4. Upload the `ReactJS app`
+4. Upload the `ReactJS app` into dotCMS.
 5. Create a content based on the new `Custom Field`
 
 ### 1. Create the Custom Field
-- A) Go to `Content Model` --> `Content Types` and add a new `Content`
-- <a id="step1b"></a> B) Add a `Custom Field` and set a `Name` (the Name must be unique). E.g. **customReactApp**
-- <a id="step1c"></a> C) In the `Value` field you need to set the path of the VTL file. E.g. 
+- Go to `Content Model` --> `Content Types` and add a new `Content`
+- Add a `Custom Field` and set a `Name` (the Name must be unique). E.g. **customReactApp**
+- In the `Value` field you need to set the path of the VTL file. E.g. 
 `#dotParse("/application/vtl/custom-fields/customFieldReactApp.vtl")`
 
 ### 2. Create the VTL file
