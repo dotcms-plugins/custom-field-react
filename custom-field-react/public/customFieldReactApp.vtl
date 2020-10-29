@@ -7,13 +7,12 @@
 </iframe>
 
 <script>
-    const hiddenFieldValue = document.getElementById("$field.getVelocityVarName()");
+    const hiddenFieldValue = document.getElementById("${field.velocityVarName}");
     const iframe = document.getElementById("reactAppIframe");
-    const hostname = "$request.getRequestURL()".substr(0, "$request.getRequestURL()".indexOf('/', 8));
 
     // Set data to the iframe to be loaded in the React App
     iframe.dataset.value = document.getElementById("$field.getVelocityVarName()").value;
-    iframe.src = hostname + '/react-app/index.html';
+    iframe.src = '/application/vtl/custom-field-react/index.html';
 
     iframe.onload = () => {
         iframe.contentWindow.document.addEventListener("custom-field-react-app",

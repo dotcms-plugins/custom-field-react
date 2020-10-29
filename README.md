@@ -7,17 +7,16 @@ The patterns that this plugin uses to enable this react component can be used to
 
 ## Steps:
 
-1. Create the `Custom Field`
-2. Create the `vtl file`
-3. Create and build the `ReactJS app`
-4. Upload the `ReactJS app` into dotCMS.
+1. Create a Custom Field on your content type called Markdown.
+2. Build the included React app.
+3. Upload the built `ReactJS app` into dotCMS.
 5. Create a content based on the new `Custom Field`
 
 ### 1. Create the Custom Field
-- Go to `Content Model` --> `Content Types` and add a new `Content`
+- Go to `Content Model` --> `Content Types` and find the content type to which you want to add the custom field.
 - Add a `Custom Field` and set a `Name` (the Name must be unique). E.g. **customReactApp**
-- In the `Value` field you need to set the path of the VTL file. E.g. 
-`#dotParse("/application/vtl/custom-fields/customFieldReactApp.vtl")`
+- In the `Value` field set the path of the included VTL file which. E.g. 
+`#dotParse("/application/vtl/custom-field-react/customFieldReactApp.vtl")`
 
 ### 2. Create the VTL file
 - A) Go to `Site` --> `Browser` and create the `VTL` file based on the name and path set on step [1. C](#step1c)
